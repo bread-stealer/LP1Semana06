@@ -49,7 +49,9 @@ namespace RandomDungeon
                 // Selecionar Aleatoriamente um Defensor
                 // Garantindo que Não Seja o Mesmo que o Atacante
                 int defenderIndex;
+
                 // CÓDIGO AQUI
+                
                 
                 // Obter os Objetos Atacante e Defensor
                 Enemy attacker = enemies[attackerIndex];

@@ -17,7 +17,7 @@ namespace RandomDungeon
             return enemies;
         }
 
-        public void SetEnemies(List<Enemy> value)
+        public void SetEnemies(List<Enemy>value)
         {
             enemies = value;
         }
@@ -37,6 +37,12 @@ namespace RandomDungeon
         public void ShowEnemies()
         {
             // CÓDIGO AQUI
+            List<string> names = new List<string>();
+foreach (Enemy e in enemies)
+{
+    names.Add(e.GetName());
+}
+Console.WriteLine("Arena: " + string.Join(", ", names));
         }
         
         // Simula uma Batalha Entre Dois Inimigos
@@ -45,9 +51,15 @@ namespace RandomDungeon
             // Subtrai o Ataque do Atacante à Vida do Defensor
             // Garante que a Vida Não Fique Negativa
             // CÓDIGO AQUI
+            int newHealth = defender.GetHealth() - attacker.GetAttack();
+            defender.SetHealth(Math.Max(0, newHealth));
             
             // Se a Vida do Defensor Chegar a 0, Remove-o da Arena
             // CÓDIGO AQUI
+            if (defender.GetHealth() == 0)
+            {
+                enemies.Remove(defender);
+            }
         }
     }
 }
