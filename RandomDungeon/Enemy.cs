@@ -62,6 +62,16 @@ namespace RandomDungeon
         public override string ToString()
         {
             // CÓDIGO AQUI
+            return $"{name} ({health}, {attack})";
+        }
+
+        public static Enemy GenerateRandomEnemy(int seed)
+        {
+            Random rng = new Random(seed);
+            string name = DefaultNames[rng.Next(DefaultNames.Length)];
+            int health = rng.Next(50, 101);
+            int attack = rng.Next(5, 21);
+            return new Enemy(name, health, attack);
         }
     }
 }
